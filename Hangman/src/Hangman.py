@@ -3,6 +3,8 @@ Created on Mar 14, 2019
 
 @author: bvhwa
 '''
+import random;
+
 class Hangman:
     def __init__(self, secret, numGuesses):
         self.secret = secret;
@@ -44,7 +46,12 @@ class Hangman:
         print();
         print("# of guesses remaining : {0}" .format(self.numGuesses));
                 
-hangman = Hangman("spooky", 5);
+words = ["spooky", "mouse", "onion", "pepper", "salt", "alphabet", "zebra", "chocolate",
+        "vanilla", "concert", "music", "pillow", "whoppers", "freckle", "keys"];
+
+randNum = random.randint(0, len(words));
+
+hangman = Hangman(words[randNum], len(words[randNum]) - 1);
 correct = False;
 
 while(hangman.hasGuesses()):
